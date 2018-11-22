@@ -1,5 +1,24 @@
 {
+  "name": "cassie",
+  "version": "1.0.0",
+  "description": "Cascading Config Service",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.1",
+    "@types/node": "^8.0.57",
+    "serverless-webpack": "^5.1.1",
+    "source-map-support": "^0.5.6",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.5.0",
     "serverless": "^1.33.1"
-  }
+  },
+  "author":
+    "Mark Koelle",
+  "license": "MIT"
 }

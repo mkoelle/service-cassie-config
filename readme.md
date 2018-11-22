@@ -55,7 +55,6 @@
     1. If there are no values in the typed location and a parent object of the type exists, the parent defaults are returned
     1. If there are no values in the typed location, and no parents, the (base) defaults are returned 
 1. user can override values at child level.
-    1. 
     1. this may or may not be accomplished through other stories 
 
 ## data storage and api
