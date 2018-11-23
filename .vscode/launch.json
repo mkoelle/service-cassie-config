@@ -1,0 +1,98 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Tests",
+            "program": "${workspaceFolder}/src/handler.js",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch current file w/ ts-node",
+            "protocol": "inspector",
+            "args": ["${relativeFile}"],
+            "cwd": "${workspaceRoot}",
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch current file w/ cucumber",
+            "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
+            "windows": {
+                "program": "${workspaceFolder}/node_modules/cucumber/bin/cucumber"
+            },
+            "env": {
+              "TS_NODE_PROJECT": "src/tsconfig.specs.json"
+            },
+            "args": [
+                "--require-module",
+                "ts-node/register",
+                "--require",
+                "${workspaceFolder}/features/**.*ts",
+                "${relativeFile}"
+            ],
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch all tests w/ cucumber",
+            "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
+            "env": {
+              "TS_NODE_PROJECT": "src/tsconfig.specs.json"
+            },
+            "args": [
+                "--require-module",
+                "ts-node/register",
+                "--require",
+                "features/**.*ts",
+                "features/"
+            ],
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "console": "integratedTerminal",
+            "name": "Launch Features",
+            "stopOnEntry": false,
+            "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
+            "args": [
+                "--require-module",
+                "ts-node/register",
+                "features/**/*.feature",
+                "--require", 
+                "features/**/*.ts",
+                "--format-options '{\"snippetInterface\": \"async-await\"}'",
+                "--colors",
+                "--format",
+                "summary",
+                "--tags",
+                "@only or @debug"
+            ],
+            "cwd": "${workspaceRoot}",
+            "runtimeArgs": [
+              "--nolazy"
+            ],
+            "sourceMaps": true,
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js"
+              ]
+          }
+    ]
+}
