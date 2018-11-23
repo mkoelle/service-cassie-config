@@ -1,9 +1,9 @@
-import { APIGatewayProxyResult } from 'aws-lambda';
+import { APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
 import { World } from "cucumber";
  
 declare module "cucumber" {
     interface World {
-        error: Error;
+        request: APIGatewayEvent;
         actual: APIGatewayProxyResult;
     }
 }

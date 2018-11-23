@@ -1,24 +1,28 @@
 import { expect } from "chai";
 import { Given, When, Then } from "cucumber";
 
-import { APIGatewayEvent, Handler, Callback, Context } from 'aws-lambda';
+import { APIGatewayEvent, Handler, Callback, Context, APIGatewayEventRequestContext, APIGatewayProxyResult } from 'aws-lambda';
 import { get } from '../../src/handler';
+import { AssertionError, doesNotThrow } from "assert";
  
 Given('a cassie instance', function() {
     //No-op
+    this.request = <APIGatewayEvent>{};
 });
  
-When("I get the path {string}", function(path: string) {
-    let apple = 1+3;
-    let bridge = 4* apple;
-    get(null, null, (error : Error, result : any) => {
-        expect(error).to.be.null;
-        this.actual = result;
-        //this.error = error;
-        result.body.should.equal('{"message":"Go Serverless Webpack (Typescript) v1.0! Your function executed successfully!","input":null}');    
-      })
+Given("a request path of {string}", async function(path: string) {
+    //set the path here
+    this.request.path = path;
+});
+
+When("I get the value", async function() {
+    let context : Context;
+
+    let result = await get(this.request, context, null);
+ 
+    this.actual = <APIGatewayProxyResult>result;
 });
  
-Then("the result is {string}", function(expected: string) {
-    this.actual.body.should.equal('{"message":"Go Serverless Webpack (Typescript) v1.0! Your function executed successfully!","input":null}');    
+Then("the message is {string}", function(expected: string) {
+    expect(JSON.parse(this.actual.body).message).to.equal(expected);    
 });
