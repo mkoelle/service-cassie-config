@@ -3,7 +3,6 @@ import { Given, When, Then } from "cucumber";
 
 import { APIGatewayEvent, Handler, Callback, Context, APIGatewayEventRequestContext, APIGatewayProxyResult } from 'aws-lambda';
 import { get } from '../../src/handler';
-import { AssertionError, doesNotThrow } from "assert";
  
 Given('a cassie instance', function() {
     //No-op
