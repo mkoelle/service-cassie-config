@@ -5,6 +5,7 @@
   "main": "src/handler.js",
   "scripts": {
     "test": "cucumber-js features/ --require-module ts-node/register --require 'features/**/*.ts'",
+    "deploy": "sls deploy",
     "clean": "rm -rf src/**/*.js features/**/*.js src/*.js features/*.js src/**/*.map features/**/*.map src/*.map features/*.map"
   },
   "dependencies": {},
