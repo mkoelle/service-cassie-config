@@ -12,9 +12,12 @@
   "dependencies": {},
   "devDependencies": {
     "@types/aws-lambda": "8.10.1",
+    "@types/aws-sdk": "^2.7.0",
     "@types/chai": "^4.1.7",
     "@types/cucumber": "^4.0.4",
     "@types/node": "^8.0.57",
+    "aws-sdk": "^2.382.0",
+    "aws-sdk-mock": "^4.3.0",
     "chai": "^4.2.0",
     "cucumber": "^5.0.2",
     "serverless": "^1.33.1",

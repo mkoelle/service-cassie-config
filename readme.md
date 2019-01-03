@@ -122,7 +122,7 @@ draft config store - types w/defaults
 `-- balloon
     `-- color = black
 ```
-draft confit store - types w/meta data
+draft config store - types w/meta data
 ```
 |-- party
 |   `-- validation = https://path.to.json.shema
@@ -130,11 +130,28 @@ draft confit store - types w/meta data
 
 ### Queries
 
-* /parties/jakes_birthday/
-    * { location: "the big oak tree", balloon: "red"}
-* /parties/locats_shindig/
-    * { location: "supersecret", balloon: "green"}
-* /events/opening_galla_1974/
-    * { location: "the big oak tree", balloon: "purple"}
-* /events/yarn_expo/
-    * { location: "the big oak tree", balloon: "black"}
+#### /v1/config/
+* get - /parties/jakes_birthday/
+    * reponse - { location: "the big oak tree", balloon: "red"}
+* get - /parties/locats_shindig/
+    * response - { location: "supersecret", balloon: "green"}
+* get - /events/opening_galla_1974/
+    * response - { location: "the big oak tree", balloon: "purple"}
+* get - /events/yarn_expo/
+    * response - { location: "the big oak tree", balloon: "black"}
+
+#### /v1/types
+* put - /party
+* put - /parties/party
+
+Can include flag to set validation
+
+#### /v1/defaults
+* put - /party/baloon/color
+  * purple
+
+* put - /parties/party/baloon/color
+  * green
+
+* put - /party
+    * { balloon: "red"}
