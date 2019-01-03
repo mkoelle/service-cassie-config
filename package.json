@@ -5,7 +5,8 @@
   "main": "src/handler.js",
   "scripts": {
     "test": "cucumber-js features/ --require-module ts-node/register --require 'features/**/*.ts'",
-    "deploy": "sls deploy",
+    "deploy:domain": "sls create_domain",
+    "deploy:api": "sls deploy",
     "clean": "rm -rf src/**/*.js features/**/*.js src/*.js features/*.js src/**/*.map features/**/*.map src/*.map features/*.map"
   },
   "dependencies": {},
@@ -17,6 +18,7 @@
     "chai": "^4.2.0",
     "cucumber": "^5.0.2",
     "serverless": "^1.33.1",
+    "serverless-domain-manager": "^2.6.10",
     "serverless-webpack": "^5.1.1",
     "source-map-support": "^0.5.6",
     "ts-loader": "^4.2.0",

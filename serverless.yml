@@ -4,6 +4,7 @@ service:
 # Add the serverless-webpack plugin
 plugins:
   - serverless-webpack
+  - serverless-domain-manager
 
 provider:
   name: aws
@@ -14,8 +15,15 @@ functions:
     handler: src/handler.get
     events:
       - http:
-          path: /cassie/
+          path: /
           method: get
       - http:
-          path: /cassie/{path+}
+          path: /{path+}
           method: get
+
+custom:
+  customDomain:
+    domainName: api.firebox.mkoelle.com
+    basePath: 'cassie'
+    stage: ${self:provider.stage}
+    createRoute53Record: true
