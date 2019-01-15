@@ -16,7 +16,7 @@
                 "program": "${workspaceFolder}/node_modules/cucumber/bin/cucumber"
             },
             "env": {
-              "TS_NODE_PROJECT": "${workspaceRoot}/tsconfig.json"
+                "TS_NODE_PROJECT": "${workspaceRoot}/tsconfig.json"
             },
             "args": [
                 "features/",
@@ -29,16 +29,17 @@
             ],
             "cwd": "${workspaceRoot}",
             "runtimeArgs": [
-              "--nolazy"
+                "--nolazy"
             ],
             "skipFiles": [
                 "${workspaceRoot}/node_modules/**/*",
                 "<node_internals>/**/*.js"
-              ]
-        },{
+            ]
+        },
+        {
             "type": "node",
             "request": "launch",
-            "name": "Launch debug & only w/ cucumber",
+            "name": "Launch @only w/ cucumber",
             "protocol": "inspector",
             "console": "integratedTerminal",
             "stopOnEntry": false,
@@ -47,7 +48,7 @@
                 "program": "${workspaceFolder}/node_modules/cucumber/bin/cucumber"
             },
             "env": {
-              "TS_NODE_PROJECT": "${workspaceRoot}/tsconfig.json"
+                "TS_NODE_PROJECT": "${workspaceRoot}/tsconfig.json"
             },
             "args": [
                 "features/",
@@ -56,16 +57,16 @@
                 "--require",
                 "'features/**/*.ts'",
                 "--tags",
-                "@only and @debug"
+                "@only"
             ],
             "cwd": "${workspaceRoot}",
             "runtimeArgs": [
-              "--nolazy"
+                "--nolazy"
             ],
             "skipFiles": [
                 "${workspaceRoot}/node_modules/**/*",
                 "<node_internals>/**/*.js"
-              ]
+            ]
         }
     ]
 }
